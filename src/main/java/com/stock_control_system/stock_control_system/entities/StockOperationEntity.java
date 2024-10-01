@@ -16,17 +16,17 @@ public class StockOperationEntity {
     private Date date;
     private int quantity;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id", referencedColumnName = "id")
-    private List<UserEntity> userEntities = new ArrayList<>();
+    private UserEntity user;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "store_id", referencedColumnName = "id")
-    private List<StoreEntity> storeEntities = new ArrayList<>();
+    private StoreEntity store;
 
-    @OneToMany
+    @ManyToOne
     @JoinColumn(name = "product_id", referencedColumnName = "id")
-    private List<ProductEntity> productEntities = new ArrayList<>();
+    private ProductEntity product;
 
     public int getId() {
         return id;

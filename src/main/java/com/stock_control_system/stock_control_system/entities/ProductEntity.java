@@ -2,6 +2,9 @@ package com.stock_control_system.stock_control_system.entities;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table(name = "Products")
 public class ProductEntity {
@@ -13,6 +16,9 @@ public class ProductEntity {
     private double costPrice;
     private double salePrice;
     private int quantity;
+
+    @OneToMany(mappedBy = "product")
+    private List<StockOperationEntity> stockOperations = new ArrayList<>();
 
     public ProductEntity() {
     }

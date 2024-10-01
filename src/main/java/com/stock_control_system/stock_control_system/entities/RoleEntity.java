@@ -12,8 +12,8 @@ public class RoleEntity {
     private String name;
     private String description;
 
-    @OneToOne(mappedBy = "Users")
-    private UserEntity userEntity;
+    @OneToOne(mappedBy = "role")
+    private UserEntity user;
 
     public RoleEntity() {
     }

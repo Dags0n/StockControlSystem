@@ -1,9 +1,9 @@
 package com.stock_control_system.stock_control_system.entities;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "Stores")
@@ -13,6 +13,9 @@ public class StoreEntity {
     private int id;
     private String name;
     private String address;
+
+    @OneToMany(mappedBy = "store")
+    private List<StockOperationEntity> stockOperations = new ArrayList<>();
 
     public StoreEntity() {
     }

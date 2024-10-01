@@ -2,6 +2,9 @@ package com.stock_control_system.stock_control_system.entities;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table(name = "Users")
 public class UserEntity {
@@ -16,16 +19,19 @@ public class UserEntity {
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "role_id", referencedColumnName = "id")
-    private RoleEntity roleEntityId;
+    private RoleEntity role;
+
+    @OneToMany(mappedBy = "user")
+    private List<StockOperationEntity> stockOperations = new ArrayList<>();
 
     public UserEntity() {
     }
 
-    public UserEntity(String name, String password, String email, RoleEntity roleEntityId) {
+    public UserEntity(String name, String password, String email, RoleEntity role) {
         this.name = name;
         this.email = email;
         this.password = password;
-        this.roleEntityId = roleEntityId;
+        this.role = role;
     }
 
     public int getId() {
@@ -60,11 +66,11 @@ public class UserEntity {
         this.password = password;
     }
 
-    public RoleEntity getRoleId() {
-        return roleEntityId;
+    public RoleEntity getRole() {
+        return role;
     }
 
-    public void setRoleId(RoleEntity roleEntityId) {
-        this.roleEntityId = roleEntityId;
+    public void setRole(RoleEntity role) {
+        this.role = role;
     }
 }
