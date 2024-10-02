@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Atualizar Produto</title>
+</head>
+<body>
+<h1>Atualizar Produto</h1>
+
+<form action="#" th:action="@{/products/update/{id}(id=${product.id})}" th:object="${product}" method="post">
+  <div>
+    <label for="name">Nome:</label>
+    <input type="text" id="name" th:field="*{name}" placeholder="Nome" required>
+  </div>
+  <div>
+    <label for="description">Descrição:</label>
+    <input type="text" id="description" th:field="*{description}" placeholder="Descrição" required>
+  </div>
+  <div>
+    <label for="costPrice">Valor de custo:</label>
+    <input type="text" id="costPrice" th:field="*{costPrice}" placeholder="Valor de custo" required>
+  </div>
+  <div>
+    <label for="salePrice">Valor de venda:</label>
+    <input type="text" id="salePrice" th:field="*{salePrice}" placeholder="Valor de venda" required>
+  </div>
+  <div>
+    <label for="quantity">Quantidade:</label>
+    <input type="text" id="quantity" th:field="*{quantity}" placeholder="Quantidade" required>
+  </div>
+  <button type="submit">Atualizar Produto</button>
+</form>
+
+<a href="/users">Voltar para lista de produtos</a>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 40px;
+        }
+        .stats div {
+            background-color: #f0f0f0;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .actions {
+            display: flex;
+            justify-content: space-around;
+        }
+        .actions a {
+            text-decoration: none;
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+        .actions a:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Bem-vindo ao Dashboard</h1>
+
+    <div class="stats">
+        <div>
+            <h2>Total de Usuários</h2>
+            <p th:text="${totalUsers}">0</p>
+        </div>
+        <div>
+            <h2>Total de Produtos</h2>
+            <p th:text="${totalProducts}">0</p>
+        </div>
+    </div>
+
+    <div class="actions">
+        <a href="/users">Gerenciar Usuários</a>
+        <a href="/products">Gerenciar Produtos</a>
+        <a href="/users">Gerenciar Operações de Estoque</a>
+    </div>
+</div>
+</body>
+</html>
