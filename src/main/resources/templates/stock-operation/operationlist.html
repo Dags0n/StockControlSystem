@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Operações de Estoque</title>
+</head>
+<body>
+<h1>Lista de Operações de Estoque</h1>
+
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Tipo de Operação</th>
+        <th>Data de Operação</th>
+        <th>Quantidade</th>
+        <th>Usuário</th>
+        <th>Loja</th>
+        <th>Produto</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="stock_operation : ${stock_operation}">
+        <td th:text="${stock_operation.id}"></td>
+        <td th:text="${stock_operation.operationType}"></td>
+        <td th:text="${stock_operation.operationDate}"></td>
+        <td th:text="${stock_operation.quantity}"></td>
+        <td th:text="${stock_operation.user.id}"></td>
+        <td th:text="${stock_operation.store.id}"></td>
+        <td th:text="${stock_operation.product.id}"></td>
+        <td>
+            <a th:href="@{/stock-operations/update/{id}(id=${stock_operation.id})}">Editar</a>
+            <form th:action="@{/stock-operations/delete/{id}(id=${stock_operation.id})}" method="post" style="display:inline;">
+                <input type="hidden" name="_method" value="delete"/>
+                <button type="submit">Deletar</button>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<a href="/stock-operations/create">Criar Nova Operação de Estoque</a>
+</body>
+</html>

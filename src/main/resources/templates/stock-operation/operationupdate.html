@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Atualizar Operação de Estoque</title>
+</head>
+<body>
+<h1>Atualizar Operação de Estoque</h1>
+
+<form action="#" th:action="@{/stock-operations/update/{id}(id=${stock_operation.id})}" th:object="${stock_operation}" method="post">
+  <div>
+    <label for="operationType">Tipo de Operação:</label>
+    <input type="text" id="operationType" th:field="*{operationType}" placeholder="Tipo de Operação" required>
+  </div>
+  <div>
+    <label for="quantity">Quantidade:</label>
+    <input type="text" id="quantity" th:field="*{quantity}" placeholder="Quantidade" required>
+  </div>
+  <button type="submit">Atualizar Operação de Estoque</button>
+</form>
+
+<a href="/stock-operations">Voltar para lista de operações de estoque</a>
+</body>
+</html>

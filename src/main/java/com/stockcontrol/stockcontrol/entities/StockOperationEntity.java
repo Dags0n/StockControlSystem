@@ -5,7 +5,7 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 @Data
 @Entity
@@ -20,10 +20,13 @@ public class StockOperationEntity {
 
     private String operationType;
 
-    @Temporal(TemporalType.DATE)
-    private Date operationDate;
+    private LocalDateTime operationDate;
 
     private int quantity;
+
+    public StockOperationEntity() {
+        this.operationDate = LocalDateTime.now();
+    }
 
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
